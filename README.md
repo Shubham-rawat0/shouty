@@ -56,5 +56,50 @@ Shouty is a modern, full-stack URL shortener platform that allows users to gener
 
 ---
 
-## Project Structure
+
+---
+
+## How It Works
+
+### 1️⃣ URL Creation
+- Authenticated user submits a long URL
+- Backend generates a unique short code
+- URL mapping is stored in MongoDB
+
+---
+
+### 2️⃣ Redirection
+- When a short URL is accessed:
+  - User is redirected to the original long URL
+  - Click event is pushed to a Redis queue
+
+---
+
+### 3️⃣ Background Processing
+- Worker consumes queue events
+- Click count is incremented asynchronously
+- Ensures fast redirection and accurate analytics
+
+---
+
+### 4️⃣ Analytics Dashboard
+- Users can view all their shortened URLs
+- Each URL displays click count and creation date
+
+---
+
+## Run Locally
+
+### Prerequisites
+- Node.js (v18+)
+- MongoDB
+- Redis
+- Git
+
+---
+
+### Clone the Repository
+```bash
+git clone https://github.com/Shubham-rawat0/Shouty.git
+cd Shouty
 
